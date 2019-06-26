@@ -38,8 +38,8 @@
                     <th scope="col">Employee Name</th>
                     <th scope="col">Role</th>
                     <th scope="col">Start Date</th>
-                    <th scope="col">Months Worked</th>
                     <th scope="col">Monthly Rate ($)</th>
+                    <th scope="col">Months Worked</th>
                     <th scope="col">Total Billed($)</th>
                 </tr>
             </thead>
@@ -49,8 +49,8 @@
                     <td class="name"></td>
                     <td class="role"></td>
                     <td class="date"></td>
-                    <td class="months"></td>
                     <td class="rate"></td>
+                    <td class="months"></td>
                     <td class="billed"></td>
                 </tr>
             </tbody>
@@ -135,7 +135,7 @@
             var empName = childSnapshot.val().name;
             var empRole = childSnapshot.val().role;
             var empStart = childSnapshot.val().start;
-            var empRate = childSnapshot.val().role
+            var empRate = childSnapshot.val().rate;
 
             console.log(empName);
             console.log(empRole);
@@ -150,9 +150,6 @@
             )
             $("#employee-table > tbody").append(newRow);
         });
-
-
-
 
     </script>
 
