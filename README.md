@@ -1,12 +1,10 @@
-## Instructions
-* With your group, answer each of the following questions:
-  1. Who is your target audience?
+1. Who is your target audience?
   <!--Record Collector-->
-  2. What is the problem that the product will address? 
+2. What is the problem that the product will address? 
   <!--Organization of collections; Efficient and cost effective shopping-->
-  3. What is the primary goal of the product?
+3. What is the primary goal of the product?
   <!--Buy records at lowest available cost and manage your collections-->
-  4. Identify and prioritize essential user stories (limit this to 3 or fewer)?
+4. Identify and prioritize essential user stories (limit this to 3 or fewer)?
 
      As a Vinyl Collector, I want to search for competitive pricing options for records.
      As a Vinyl Collector, I want to organize a list of future purchases.
