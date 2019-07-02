@@ -8,23 +8,25 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <title>Record Collector</title>
 </head>
-
+<body>
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark" style= "background-color: rgb(194, 0, 0)">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-            data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
-            aria-label="Toggle navigation">
+            data-target="#navbarTogglerDemo02">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#!">Navbar</a>
+        <a class="navbar-brand" href="#!">Record Collector</a>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-md-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#!">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#!">Search </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#!">Wishlist</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!">Collection</a>
                 </li>
             </ul>
         </div>
@@ -34,14 +36,15 @@
 <br>
 
 <div class="container">
-    <div class="jumbotron" style="background-color: red; color: white; font-weight: bold">
-      <h1 class="text-center">Record Collector</h1>
+    <div class="jumbotron" style="background-color: rgb(233, 0, 0); color: white; font-weight: bold">
+      <h1 class="text-center">Welcome to Record Collector!</h1>
+      <h4 class="text-center">The App that allows you to search for records, create a wishlist, and keep track of your collection.</h4>
     </div>
 
     <div class="row">
         <div class="col-md-12">
           <div class="card mb-4">
-            <div class="card-header" style= "background:lightcoral; color: white; font-weight: bold">Search for an Album</div>
+            <div class="card-header" style= "background:rgb(233, 0, 0); color: white; font-weight: bold">Search for an Album</div>
             <div class="card-body">
   
               <form>
@@ -71,37 +74,7 @@
 
 </div>
 
-<body>
-
-    <div class="col-xs-12 col-md-6 col-md-offset-3">
-        <form action="/search/" accept-charset="UTF-8" method="get">
-            <div class="input-group text-center">
-                <input type="search" name="query" id="query" class="form-control" placeholder="Search for items..."
-                    autocorrect="off">
-                <span class="input-group-btn">
-                    <button name="button" type="submit" class="btn btn-primary"><i class="fa fa-search"></i>
-                    </button></span>
-            </div>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" name="search_desc" id="search_desc" value="1">
-                    Search title <strong>and</strong> description.
-                </label>
-            </div>
-        </form>
-
-
-    </div>
-    </form>
-
-    <div class="card">
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Media result #1</li>
-            <li class="list-group-item">Media result #2</li>
-            <li class="list-group-item">Media result #3</li>
-        </ul>
-    </div>
-
+<div id="search-results"></div>
 
 </body>
 
