@@ -10,7 +10,7 @@
 </head>
 <body>
 <header>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark" style= "background-color: rgb(194, 0, 0)">
+    <nav class="navbar navbar-expand-lg navbar-dark" style= "background-color: rgb(209, 3, 3)">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
             data-target="#navbarTogglerDemo02">
             <span class="navbar-toggler-icon"></span>
@@ -20,7 +20,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-md-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#!">Search </a>
+                    <a class="nav-link" href="#!">Search <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#!">Wishlist</a>
@@ -64,7 +64,7 @@
                   <label for="year-input">Year Released</label>
                   <input class="form-control" id="year-input" type="text">
                 </div>
-                <button class="btn btn-primary float-right" id="search-btn" style="background: black; outline-color: none">Search</button>
+                <button type="button" class="btn btn-outline-dark float-right" id="search-btn">Search</button>
               </form>
   
             </div>
@@ -74,7 +74,85 @@
 
 </div>
 
-<div id="search-results"></div>
+<div class="container">
+        
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-4">
+                <div class="card-header" style= "background:rgb(233, 0, 0); color: white; font-weight: bold">Search Results</div>
+
+                <div class="card-group" id="search-results">
+                        <div class="card; col-md-4">
+                          <img src="..." class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h5 class="card-title"><b> Title: </b> <span id=title-result> Title Example</span></h5>
+                            <p class="card-text"><b>Description: </b><span id="description">Some quick example text to build on the card title and make up the bulk of the card's content.</span></p>
+                            <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><b>Artist: </b><span id=artist-result>Artist Example</span></li>
+                                    <li class="list-group-item"><b>Genre: </b><span id=genre-result>Genre Example</span></li>
+                                    <li class="list-group-item"><b>Year Released: </b><span id=year-result>Year Example</span></li>
+                                    <li class="list-group-item"><b>Ebay Price: </b><span id=Ebay-result>Ebay Price </span></li>
+                                    <li class="list-group-item"><b>Amazon Price: </b><span id=Amazon-result>Amazon Price </span></li>
+                            </ul>
+                            <br>
+                            <button type="button" class="btn btn-outline-dark">Add to Collection</button>
+                            <button type="button" class="btn btn-outline-dark">Add to Wishlist</button>
+                          </div>
+                        </div>
+
+                        <div class="card; col-md-4">
+                          <img src="..." class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h5 class="card-title"><b> Title: </b> <span id=title-result> Title Example</span></h5>
+                            <p class="card-text"><b>Description: </b><span id="description">Some quick example text to build on the card title and make up the bulk of the card's content.</span></p>
+                            <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><b>Artist: </b><span id=artist-result>Artist Example</span></li>
+                                    <li class="list-group-item"><b>Genre: </b><span id=genre-result>Genre Example</span></li>
+                                    <li class="list-group-item"><b>Year Released: </b><span id=year-result>Year Example</span></li>
+                                    <li class="list-group-item"><b>Ebay Price: </b><span id=Ebay-result>Ebay Price </span></li>
+                                    <li class="list-group-item"><b>Amazon Price: </b><span id=Amazon-result>Amazon Price </span></li>
+                            </ul>
+                            <br>
+                            <button type="button" class="btn btn-outline-dark">Add to Collection</button>
+                            <button type="button" class="btn btn-outline-dark">Add to Wishlist</button>
+                          </div>
+                        </div>
+
+                        <div class="card; col-md-4">
+                          <img src="..." class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h5 class="card-title"><b> Title: </b> <span id=title-result> Title Example</span></h5>
+                            <p class="card-text"><b>Description: </b><span id="description">Some quick example text to build on the card title and make up the bulk of the card's content.</span></p>
+                            <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><b>Artist: </b><span id=artist-result>Artist Example</span></li>
+                                    <li class="list-group-item"><b>Genre: </b><span id=genre-result>Genre Example</span></li>
+                                    <li class="list-group-item"><b>Year Released: </b><span id=year-result>Year Example</span></li>
+                                    <li class="list-group-item"><b>Ebay Price: </b><span id=Ebay-result>Ebay Price </span></li>
+                                    <li class="list-group-item"><b>Amazon Price: </b><span id=Amazon-result>Amazon Price </span></li>
+                            </ul>
+                            <br>
+                            <button type="button" class="btn btn-outline-dark" id="add-to-collection-btn">Add to Collection</button>
+                            <button type="button" class="btn btn-outline-dark" id="add-to-wishlist-btn">Add to Wishlist</button>
+                          </div>
+                        </div>
+
+                       
+
+                </div>                
+            </div>
+        </div>
+    </div>
+</div>
+    
+<script type="text/javascript">
+    var queryURL = "https://api.discogs.com?api_key=GCsLSmSgsIIzroXNKCbsBdWNAsGiRgKScTDVGNqk"
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
+        console.log(response)
+    });
+</script>
 
 </body>
 
