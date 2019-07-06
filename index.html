@@ -124,13 +124,34 @@ $.ajax({
 }).then(function(response) {
   console.log(response);
   console.log(response.results[0].title);
-  var imageResult = $("#image-result").attr("src", response.results[0].cover_image);
-  
+  var imageResult = $("#image-result").attr("src", response.results[0].cover_image).addClass("limitPics");
+  var titleResult = $("#title-result").text(response.results[0].title);
+  var yearResult = $("#year-result").text(response.results[0].year);
+  var genreResult = $("#genre-result").text(response.results[0].genre);
+  var releaseID = response.results[0].id;
+  console.log(releaseID);
+
+      var queryURL = "https://api.discogs.com/marketplace/price_suggestions/" + releaseID + "&key=CQwYyYowOAghyybYpMYL&secret=hlsXvJXvbpgfeoNJJHhOjEmSWzBgKvnY";
+      $.ajax({
+      url: queryURL,
+      method: "GET"
+      }).then(function(response) {
+        console.log(response);
+      }); 
     });
   });
 </script>
 
+<style>
+.limitPics{
+  padding-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 
+</style>
 
 
 </body>
