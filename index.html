@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
     <title>Record Collector</title>
 </head>
 <body>
@@ -21,9 +22,6 @@
             <ul class="navbar-nav mr-auto mt-2 mt-md-0">
                 <li class="nav-item active">
                     <a class="nav-link" href="#!">Search <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#!">Wishlist</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#!">Collection</a>
@@ -96,7 +94,6 @@
                             </ul>
                             <br>
                             <button type="button" class="btn btn-outline-dark">Add to Collection</button>
-                            <button type="button" class="btn btn-outline-dark">Add to Wishlist</button>
                           </div>
                         </div>
 
@@ -114,7 +111,6 @@
                             </ul>
                             <br>
                             <button type="button" class="btn btn-outline-dark">Add to Collection</button>
-                            <button type="button" class="btn btn-outline-dark">Add to Wishlist</button>
                           </div>
                         </div>
 
@@ -132,7 +128,6 @@
                             </ul>
                             <br>
                             <button type="button" class="btn btn-outline-dark" id="add-to-collection-btn">Add to Collection</button>
-                            <button type="button" class="btn btn-outline-dark" id="add-to-wishlist-btn">Add to Wishlist</button>
                           </div>
                         </div>
 
@@ -144,15 +139,34 @@
     </div>
 </div>
     
-<script type="text/javascript">
-    var queryURL = "https://api.discogs.com?api_key=GCsLSmSgsIIzroXNKCbsBdWNAsGiRgKScTDVGNqk"
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function (response) {
-        console.log(response)
+<script>
+
+  $("#search-btn").on("click", function (event) {
+           event.preventDefault();
+
+           var sTitle = $("#title-input").val().trim();
+           var sArtist = $("#artist-input").val().trim();
+           var sGenre = $("#genre-input").val().trim();
+           var sYear = $("#year-input").val().trim();
+
+           console.log(sTitle);
+           console.log(sArtist);
+           console.log(sGenre);
+           console.log(sYear);
+
+  var queryURL = "https://api.discogs.com/database/search?release_title=" +sTitle + "&artist=" + sArtist + "&genre=" + sGenre + "&year" + sYear+ "&per_page=3&page=1&key=CQwYyYowOAghyybYpMYL&secret=hlsXvJXvbpgfeoNJJHhOjEmSWzBgKvnY";
+
+$.ajax({
+  url: queryURL,
+  method: "GET"
+}).then(function(response) {
+  console.log(response)
     });
+  });
 </script>
+
+
+
 
 </body>
 
