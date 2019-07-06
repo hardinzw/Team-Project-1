@@ -88,6 +88,7 @@
               <li class="list-group-item"><b>Genre: </b><span id="genre-result">Genre Example</span></li>
               <li class="list-group-item"><b>Year Released: </b><span id="year-result">Year Example</span></li>
               <li class="list-group-item"><b>Songs: </b><span id="songs-result">Songs 1 Example</span></li>
+              <li class="list-group-item"><b>Pricing: </b><span id="price-result"></span></li>
             </ul>
             <br>
           
@@ -131,12 +132,13 @@ $.ajax({
   var releaseID = response.results[0].id;
   console.log(releaseID);
 
-      var queryURL = "https://api.discogs.com/marketplace/price_suggestions/" + releaseID + "&key=CQwYyYowOAghyybYpMYL&secret=hlsXvJXvbpgfeoNJJHhOjEmSWzBgKvnY";
+      var queryURL = "https://api.discogs.com/marketplace/price_suggestions/" + releaseID + "?token=IxYjEFQzSJoGKBwroxGLmyBkwplVfHZgZkrcdxeg";
       $.ajax({
       url: queryURL,
       method: "GET"
       }).then(function(response) {
         console.log(response);
+        var priceResults = $("#price-result").text(response['Fair (F)'].value);
       }); 
     });
   });
