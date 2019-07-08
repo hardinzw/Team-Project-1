@@ -72,30 +72,38 @@
 
 </div>
 
-<div class="container">   
+<div class="container" id="hidden">   
     <div class="row">
     <div class="col-md-12">
     <div class="card mb-4">
     <div class="card-header" style= "background:rgb(233, 0, 0); color: white; font-weight: bold">Search Result</div>                
-                  
-      <div class="card mb-3">
-        <img src="" class="card-img-top" id="image-result">
-          <div class="card-body">
-            <h5 class="card-title"><b> Title: </b> <span id="title-result"> Title Example</span></h5>
-            <p class="card-text"><b>Description: </b><span id="description-result">Some quick example text to build on the card title and make up the bulk of the card's content.</span></p>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item"><b>Artist: </b><span id="artist-result">Artist Example</span></li>
-              <li class="list-group-item"><b>Genre: </b><span id="genre-result">Genre Example</span></li>
-              <li class="list-group-item"><b>Year Released: </b><span id="year-result">Year Example</span></li>
-              <li class="list-group-item"><b>Songs: </b><span id="songs-result">Songs 1 Example</span></li>
-              <li class="list-group-item"><b>Pricing: </b><span id="price-result"></span></li>
-            </ul>
-            <br>
-          
-            <button type="button" class="btn btn-outline-dark float-right" id="collection-btn">Add to Collection</button>
-          </div>
-      </div>  
     
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="" class="card-img" id="image-result">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"><b> Title: </b> <span id="title-result"> Title Example</span></h5>
+              <p class="card-text"><b>Description: </b><span id="description-result">Some quick example text to build on the card title and make up the bulk of the card's content.</span></p>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><b>Genre: </b><span id="genre-result"></span></li>
+                <li class="list-group-item"><b>Year Released: </b><span id="year-result"></span></li>
+                <li class="list-group-item"><b>Songs: </b><span id="songs-result"></span></li>
+                <li class="list-group-item"><b>Fair Pricing: </b><span id="fair-price-result"></span></li>
+                <li class="list-group-item"><b>Good Pricing: </b><span id="good-price-result"></span></li>
+                <li class="list-group-item"><b>Mint Pricing: </b><span id="mint-price-result"></span></li>
+              </ul>
+              <br>
+              <button type="button" class="btn btn-outline-dark float-right" id="collection-btn">Add to Collection</button>
+              <br>
+
+            </div>
+          </div>
+        </div>
+      
+
+
     </div>                
     </div>
     </div>
@@ -106,6 +114,8 @@
 
   $("#search-btn").on("click", function (event) {
            event.preventDefault();
+
+           $("#hidden").css("display", "block");
 
            var sTitle = $("#title-input").val().trim();
            var sArtist = $("#artist-input").val().trim();
@@ -138,19 +148,36 @@ $.ajax({
       method: "GET"
       }).then(function(response) {
         console.log(response);
-        var priceResults = $("#price-result").text(response['Fair (F)'].value);
+        
+        var fairPriceResults = response['Fair (F)'].value;
+        var fixedFairPrice = fairPriceResults.toFixed(2);
+        $("#fair-price-result").text("$" + fixedFairPrice);
+
+        var goodPriceResults = response['Good (G)'].value;
+        var fixedGoodPrice = goodPriceResults.toFixed(2);
+        $("#good-price-result").text("$" + fixedGoodPrice);
+
+        var mintPriceResults = response['Mint (M)'].value;
+        var fixedMintPrice = mintPriceResults.toFixed(2);
+        $("#mint-price-result").text("$" + fixedMintPrice);
+
       }); 
     });
   });
+  
 </script>
 
 <style>
 .limitPics{
-  padding-top: 10px;
+  padding-top: 30px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 90%;
+}
+
+#hidden{
+  display: none;
 }
 
 </style>
