@@ -9,9 +9,9 @@
     <script src="https://code.jquery.com/jquery.js"></script>
     <title>Record Collector</title>
 </head>
-<body>
+<body background="assets/images/floor-tile.png">
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark" style= "background-color: rgb(209, 3, 3)">
+    <nav class="navbar navbar-expand-lg navbar-dark" style= "background-color: maroon">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
             data-target="#navbarTogglerDemo02">
             <span class="navbar-toggler-icon"></span>
@@ -34,33 +34,33 @@
 <br>
 
 <div class="container">
-    <div class="jumbotron" style="background-color: rgb(233, 0, 0); color: white; font-weight: bold">
-      <h1 class="text-center">Welcome to Record Collector!</h1>
-      <h4 class="text-center">The App that allows you to search for records, create a wishlist, and keep track of your collection.</h4>
+    <div class="jumbotron" style="background-color: maroon; color: white; font-weight: bold">
+      <h3 class="text-center">Welcome to Record Collector!</h3>
+      <h5 class="text-center">The App that allows you to search for records, create a wishlist, and keep track of your collection.</h5>
     </div>
 
     <div class="row">
         <div class="col-md-12">
           <div class="card mb-4">
-            <div class="card-header" style= "background:rgb(233, 0, 0); color: white; font-weight: bold">Search for an Album</div>
-            <div class="card-body">
+            <div class="card-header" style= "background:maroon; color: white; font-weight: bold">Search for an Album</div>
+            <div class="card-body"  style= "background-color: rgb(248, 248, 221)">
   
               <form>
                 <div class="form-group">
-                  <label for="title-input">Title</label>
-                  <input class="form-control" id="title-input" type="text">
+                  <label for="title-input"><b>Title</b></label>
+                  <input class="form-control" style= "background-color: beige" id="title-input" type="text">
                 </div>
                 <div class="form-group">
-                  <label for="artist-input">Artist Name</label>
-                  <input class="form-control" id="artist-input" type="text">
+                  <label for="artist-input"><b>Artist Name</b></label>
+                  <input class="form-control" style= "background-color: beige" id="artist-input" type="text">
                 </div>
                 <div class="form-group">
-                  <label for="genre-input">Genre</label>
-                  <input class="form-control" id="genre-input" type="text">
+                  <label for="genre-input"><b>Genre</b></label>
+                  <input class="form-control" style= "background-color: beige" id="genre-input" type="text">
                 </div>
                 <div class="form-group">
-                  <label for="year-input">Year Released</label>
-                  <input class="form-control" id="year-input" type="text">
+                  <label for="year-input"><b>Year Released</b></label>
+                  <input class="form-control" style= "background-color: beige" id="year-input" type="text">
                 </div>
                 <button type="button" class="btn btn-outline-dark float-right" id="search-btn">Search</button>
               </form>
@@ -76,9 +76,9 @@
     <div class="row">
     <div class="col-md-12">
     <div class="card mb-4">
-    <div class="card-header" style= "background:rgb(233, 0, 0); color: white; font-weight: bold">Search Result</div>                
+    <div class="card-header" style= "background:maroon; color: white; font-weight: bold">Search Result</div>                
     
-        <div class="row no-gutters">
+        <div class="row no-gutters" style= "background-color: rgb(248, 248, 221)">
           <div class="col-md-4">
             <img src="" class="card-img" id="image-result">
           </div>
@@ -87,12 +87,12 @@
               <h5 class="card-title"><b> Title: </b> <span id="title-result"> Title Example</span></h5>
               <p class="card-text"><b>Description: </b><span id="description-result">Some quick example text to build on the card title and make up the bulk of the card's content.</span></p>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item"><b>Genre: </b><span id="genre-result"></span></li>
-                <li class="list-group-item"><b>Year Released: </b><span id="year-result"></span></li>
-                <li class="list-group-item"><b>Songs: </b><span id="songs-result"></span></li>
-                <li class="list-group-item"><b>Fair Pricing: </b><span id="fair-price-result"></span></li>
-                <li class="list-group-item"><b>Good Pricing: </b><span id="good-price-result"></span></li>
-                <li class="list-group-item"><b>Mint Pricing: </b><span id="mint-price-result"></span></li>
+                <li class="list-group-item" style= "background-color: rgb(248, 248, 221)"><b>Genre: </b><span id="genre-result"></span></li>
+                <li class="list-group-item" style= "background-color: rgb(248, 248, 221)"><b>Year Released: </b><span id="year-result"></span></li>
+                <li class="list-group-item" style= "background-color: rgb(248, 248, 221)"><b>Songs: </b><span id="songs-result"></span></li>
+                <li class="list-group-item" style= "background-color: rgb(248, 248, 221)"><b>Fair Pricing: </b><span id="fair-price-result"></span></li>
+                <li class="list-group-item" style= "background-color: rgb(248, 248, 221)"><b>Good Pricing: </b><span id="good-price-result"></span></li>
+                <li class="list-group-item" style= "background-color: rgb(248, 248, 221)"><b>Mint Pricing: </b><span id="mint-price-result"></span></li>
               </ul>
               <br>
               <button type="button" class="btn btn-outline-dark float-right" id="collection-btn">Add to Collection</button>
@@ -115,6 +115,9 @@
   $("#search-btn").on("click", function (event) {
            event.preventDefault();
 
+           $("#fair-price-result").text("Not Available");
+           $("#good-price-result").text("Not Availabl");
+           $("#mint-price-result").text("Not Availabl");
            $("#hidden").css("display", "block");
 
            var sTitle = $("#title-input").val().trim();
