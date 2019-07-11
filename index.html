@@ -6,7 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link href="collections.html">
   <script src="https://code.jquery.com/jquery.js"></script>
+  
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
   <title>Record Collector</title>
 </head>
 
@@ -24,8 +27,8 @@
           <li class="nav-item active">
             <a class="nav-link" href="#!">Search <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#!">Collection</a>
+          <li class="nav-item active">
+            <a class="nav-link" href="collections.html">Collection</a>
           </li>
         </ul>
       </div>
@@ -37,8 +40,8 @@
   <div class="container">
     <div class="jumbotron" style="background-color: maroon; color: white; font-weight: bold">
       <h3 class="text-center">Welcome to Record Collector!</h3>
-      <h5 class="text-center">The App that allows you to search for records, create a wishlist, and keep track of your
-        collection.</h5>
+      <h5 class="text-center">The App that allows you to search for records and keep track of your
+        collections.</h5>
     </div>
 
     <div class="row">
@@ -140,7 +143,7 @@
       // console.log(sGenre);
       // console.log(sYear);
 
-      var queryURL = "https://api.discogs.com/database/search?release_title=" + sTitle + "&artist=" + sArtist +  "&format=vinyl&per_page=1&page=1&key=CQwYyYowOAghyybYpMYL&secret=hlsXvJXvbpgfeoNJJHhOjEmSWzBgKvnY";
+      var queryURL = "https://api.discogs.com/database/search?release_title=" + sTitle + "&artist=" + sArtist + "&format=vinyl&per_page=1&page=1&key=CQwYyYowOAghyybYpMYL&secret=hlsXvJXvbpgfeoNJJHhOjEmSWzBgKvnY";
 
       $.ajax({
         url: queryURL,
@@ -259,6 +262,7 @@
     }
   </style>
 
+<script src="assets/app.js"></script>
 
 </body>
 
